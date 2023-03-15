@@ -94,11 +94,12 @@ void init_boot_pt(void)
                                              | IS_VALID | NG;
 
         /* Step 2: map PHYSMEM_START ~ PERIPHERAL_BASE with 2MB granularity */
-        for (; kva < PERIPHERAL_BASE; kva += SIZE_2M) {
-                boot_ttbr1_l2[GET_L2_INDEX(kva)] =
+        for (kva = PHYSMEM_START; kva < PERIPHERAL_BASE; kva += SIZE_2M) {
+                boot_ttbr1_l2[GET_L2_INDEX(kva + KERNEL_VADDR)] =
                         (kva) /* low mem, va = pa */
                         | UXN /* Unprivileged execute never */
                         | ACCESSED /* Set access flag */
+                        | NG
                         | INNER_SHARABLE /* Sharebility */
                         | NORMAL_MEMORY /* Normal memory */
                         | IS_VALID;
@@ -106,9 +107,10 @@ void init_boot_pt(void)
 
         /* Step 2: map PERIPHERAL_BASE ~ PHYSMEM_END with 2MB granularity */
         for (kva = PERIPHERAL_BASE; kva < PHYSMEM_END; kva += SIZE_2M) {
-                boot_ttbr1_l2[GET_L2_INDEX(kva)] =
-                        (vaddr) /* low mem, va = pa */
+                boot_ttbr1_l2[GET_L2_INDEX(kva + KERNEL_VADDR)] =
+                        (kva) /* low mem, va = pa */
                         | UXN /* Unprivileged execute never */
+                        | NG 
                         | ACCESSED /* Set access flag */
                         | DEVICE_MEMORY /* Device memory */
                         | IS_VALID;

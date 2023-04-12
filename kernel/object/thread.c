@@ -109,7 +109,20 @@ static u64 load_binary(struct cap_group *cap_group, struct vmspace *vmspace,
                         seg_sz = elf->p_headers[i].p_memsz;
                         p_vaddr = elf->p_headers[i].p_vaddr;
                         /* LAB 3 TODO BEGIN */
-
+                        // load .text
+                        seg_map_sz = ROUND_UP(p_vaddr+seg_sz,PAGE_SIZE)-ROUND_DOWN(p_vaddr,PAGE_SIZE);
+                        r = create_pmo(seg_map_sz,PMO_DATA,cap_group,&pmo);
+                        if(r<0){
+                                goto out_fail;
+                        }
+                        pmo_cap[i] = r;
+                        memcpy((void *)(phys_to_virt(pmo->start)+(p_vaddr&OFFSET_MASK)),bin+elf->p_headers[i].p_offset,elf->p_headers[i].p_filesz);
+                        flags = PFLAGS2VMRFLAGS(elf->p_headers[i].p_flags);
+                        ret = vmspace_map_range(vmspace,p_vaddr,seg_map_sz,flags,pmo);
+                        if(ret<0){
+                                kdebug("out_free_cap\n");
+                                goto out_free_cap;
+                        }
                         /* LAB 3 TODO END */
                         BUG_ON(ret != 0);
                 }
@@ -399,7 +412,7 @@ void sys_thread_exit(void)
         printk("\nBack to kernel.\n");
 #endif
         /* LAB 3 TODO BEGIN */
-
+        current_thread->thread_ctx->thread_exit_state = TE_EXITED;
         /* LAB 3 TODO END */
         /* Reschedule */
         sched();

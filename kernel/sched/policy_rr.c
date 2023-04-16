@@ -62,13 +62,13 @@ int rr_sched_enqueue(struct thread* thread) {
     if (thread == NULL || thread->thread_ctx == NULL || thread->thread_ctx->state == TS_READY) {
         return -EINVAL;
     }
-    u32 cpu_id = smp_get_cpu_id();
-    // if (thread->thread_ctx->affinity == NO_AFF) {
-    //     cpu_id = smp_get_cpu_id();
-    // } else {
-    //     cpu_id = thread->thread_ctx->affinity;
-    //     if (cpu_id >= PLAT_CPU_NUM) return -EINVAL;
-    // }
+    u32 cpu_id;
+    if (thread->thread_ctx->affinity == NO_AFF) {
+        cpu_id = smp_get_cpu_id();
+    } else {
+        cpu_id = thread->thread_ctx->affinity;
+        if (cpu_id >= PLAT_CPU_NUM) return -EINVAL;
+    }
     if (thread->thread_ctx->type != TYPE_IDLE) {
         list_append(&thread->ready_queue_node, &(rr_ready_queue_meta[cpu_id].queue_head));
         rr_ready_queue_meta[cpu_id].queue_len++;

@@ -156,8 +156,7 @@ void handle_irq(int type)
          *	The irq is not from the kernel
          * 	The thread being interrupted is an idle thread.
          */
-        if (type >= SYNC_EL0_64
-            || current_thread->thread_ctx->type == TYPE_IDLE) {
+        if (type >= SYNC_EL0_64 || current_thread->thread_ctx->type == TYPE_IDLE) {
                 /* LAB 4 TODO BEGIN */
                 lock_kernel();
                 /* LAB 4 TODO END */

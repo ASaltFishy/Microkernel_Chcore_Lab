@@ -315,7 +315,9 @@ int ipc_send_cap(struct ipc_connection *conn)
 
                 /* Lab4: copy the cap to server and update the cap_buf */
                 /* LAB 4 TODO BEGIN */
-
+                dest_cap = cap_copy(current_cap_group,conn->target->cap_group,cap_buf[i]);
+                if(dest_cap<0) goto out_free_cap;
+                cap_buf[i] = dest_cap;
                 /* LAB 4 TODO END */
         }
 
@@ -548,6 +550,12 @@ u64 sys_ipc_call(u32 conn_cap, struct ipc_msg *ipc_msg, u64 cap_num)
          * capbilities in server thread in the ipc_msg if cap_num > 0
          */
         /* LAB 4 TODO BEGIN: use ipc_send_cap */
+        if(cap_num>0){
+                r = ipc_send_cap(conn);
+                if(r<0){
+                        goto out_obj_put;
+                }
+        }
 
         /* LAB 4 TODO END */
 

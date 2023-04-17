@@ -102,7 +102,7 @@ int is_locked(struct lock *l)
         int ret = 0;
         struct lock_impl *lock = (struct lock_impl *)l;
         /* LAB 4 TODO BEGIN */
-        if(lock->next>lock->owner)ret = 1;
+        if(lock->next>lock->owner) ret = 1;
         /* LAB 4 TODO END */
         return ret;
 }

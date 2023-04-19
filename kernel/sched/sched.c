@@ -161,7 +161,7 @@ void sched_handle_timer_irq(void) {
     if (current_thread && current_thread->thread_ctx && current_thread->thread_ctx->sc) {
         if (current_thread->thread_ctx->type == TYPE_IDLE) return;
         if (current_thread->thread_ctx->sc->budget > 0) {
-            --current_thread->thread_ctx->sc->budget;
+            current_thread->thread_ctx->sc->budget-=1;
         }
     }
     /* LAB 4 TODO END */

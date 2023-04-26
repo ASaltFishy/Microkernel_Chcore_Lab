@@ -26,6 +26,7 @@ static inline void init_list_head(struct list_head *list)
         list->prev = list;
 }
 
+// add at head
 static inline void list_add(struct list_head *new, struct list_head *head)
 {
         new->next = head->next;
@@ -34,6 +35,7 @@ static inline void list_add(struct list_head *new, struct list_head *head)
         head->next = new;
 }
 
+// add at tail
 static inline void list_append(struct list_head *new, struct list_head *head)
 {
         struct list_head *tail = head->prev;

@@ -218,7 +218,7 @@ int tfs_namex(struct inode **dirat, const char **name, int mkdir_p) {
 
     /* LAB 5 TODO BEGIN */
     bool end = false;
-    struct dentry *parent = *dirat;
+    struct inode *parent = *dirat;
     while (!end) {
         // get the string between '/'
         i = 0;
@@ -231,11 +231,10 @@ int tfs_namex(struct inode **dirat, const char **name, int mkdir_p) {
         buff[i] = '\0';
         if (**name == '\0') {
             end = true;
-        }
             // printf("[tfs_namex] reach end now\n");
-        // } else {
-        //     // printf("[tfs_namex] intermediate dir name: %s, name_length: %d\n", buff, i);
-        // }
+        } else {
+            // printf("[tfs_namex] intermediate dir name: %s, name_length: %d\n", buff, i);
+        }
         dent = tfs_lookup(*dirat, buff, i);
         if (dent == NULL) {
             if (mkdir_p && !end) {
@@ -338,7 +337,7 @@ ssize_t tfs_file_write(struct inode *inode, off_t offset, const char *data,
         return -EINVAL;
     }
     u64 page_begin = offset / PAGE_SIZE;
-    u64 page_end = (offset + size) / PAGE_SIZE;
+    u64 page_end = (offset + size-1) / PAGE_SIZE;
     u64 page_old_end = inode->size / PAGE_SIZE;
     u64 total_size = 0;
     if (offset + size > inode->size) inode->size = offset + size;
@@ -387,7 +386,7 @@ ssize_t tfs_file_read(struct inode *inode, off_t offset, char *buff,
     }
 
     u64 page_begin = offset / PAGE_SIZE;
-    u64 page_end = (offset + size) / PAGE_SIZE;
+    u64 page_end = (offset + size-1) / PAGE_SIZE;
     u64 total_size = 0;
 
     // printf("[file_read] page begin %d end %d, new_size %d\n", page_begin, page_end, size);

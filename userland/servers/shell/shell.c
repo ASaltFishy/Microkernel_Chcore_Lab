@@ -122,7 +122,25 @@ int do_complement(char *buf, char *complement, int complement_time) {
     int offset;
 
     /* LAB 5 TODO BEGIN */
+	char mode = 'r';
+	FILE *parent = fopen("/\0",&mode);
 
+	ret = getdents(parent->fd, scan_buf, BUFLEN);
+
+	for (offset = 0; offset < ret; offset += p->d_reclen) {
+		memset(name, '\0', sizeof(name));
+		p = (struct dirent *)(scan_buf + offset);
+		get_dent_name(p, name);
+		if(*name == '.' && strlen(name) == 1){
+			continue;
+		}
+		if(j == complement_time){
+			memcpy(buf, name, strlen(name));
+			r = 1;
+			break;
+		}
+		j++;
+	}
     /* LAB 5 TODO END */
 
     return r;
@@ -152,12 +170,12 @@ char *readline(const char *prompt) {
 
         /* LAB 5 TODO BEGIN */
         /* Fill buf and handle tabs with do_complement(). */
-        // if(c == '\t'){
-        // 		do_complement(buf, complement, complement_time);
-        // 		printf("%s\n", buf);
-        // 		complement_time++;
-        // 		continue;
-        // 	}
+        if(c == '\t'){
+        		do_complement(buf, complement, complement_time);
+        		printf("%s\n", buf);
+        		complement_time++;
+        		continue;
+        	}
         if (c == '\n' || c == '\r') {
             break;
         }
@@ -176,17 +194,41 @@ int do_top() {
 
 void print_file_content(char *path) {
     /* LAB 5 TODO BEGIN */
+	char mode = 'r';
+	FILE *f = fopen(path,&mode);
+	char rbuf[512];
+	// read buf 不能过大 不超过512
+	fread(rbuf,sizeof(char),sizeof(rbuf),f);
 
+	chcore_console_printf("%s", rbuf);
     /* LAB 5 TODO END */
 }
 
 void fs_scan(char *path) {
     /* LAB 5 TODO BEGIN */
-	
+	// printf("[fs_scan] path: %s, len: %d\n",path,strlen(path));
+	char mode = 'r';
+	FILE *f = fopen(path,&mode);
+
+	char name[BUFLEN];
+    char scan_buf[BUFLEN];
+    int offset;
+    struct dirent *p;
+
+    int ret = getdents(f->fd, scan_buf, 512);
+
+    for (offset = 0; offset < ret; offset += p->d_reclen) {
+        p = (struct dirent *)(scan_buf + offset);
+        get_dent_name(p, name);
+		if(name[0]=='.') continue;
+		chcore_console_printf("%s ", name);
+    }
+	printf("\n");
     /* LAB 5 TODO END */
 }
 
 int do_ls(char *cmdline) {
+	// printf("[do_ls] cmd: %s\n",cmdline);
     char pathbuf[BUFLEN];
 
     pathbuf[0] = '\0';
@@ -199,6 +241,7 @@ int do_ls(char *cmdline) {
 }
 
 int do_cat(char *cmdline) {
+	// printf("[do_cat] cmd: %s\n",cmdline);
     char pathbuf[BUFLEN];
 
     pathbuf[0] = '\0';
@@ -212,7 +255,11 @@ int do_cat(char *cmdline) {
 
 int do_echo(char *cmdline) {
     /* LAB 5 TODO BEGIN */
-
+	// printf("[do_echo] cmd: %s\n",cmdline);
+	cmdline += 4;
+    while (*cmdline == ' ')
+        cmdline++;
+	chcore_console_printf("%s", cmdline);
     /* LAB 5 TODO END */
     return 0;
 }
@@ -260,7 +307,8 @@ int run_cmd(char *cmdline) {
     int cap = 0;
     /* Hint: Function chcore_procm_spawn() could be used here. */
     /* LAB 5 TODO BEGIN */
-
+	// chcore_console_printf("%s\n",cmdline);
+	chcore_procm_spawn(cmdline, &cap);
     /* LAB 5 TODO END */
     return 0;
 }

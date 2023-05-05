@@ -4,22 +4,8 @@ boot: init_c
 [BOOT] Jump to kernel main
 [INFO] [ChCore] lock init finished
 [2J[INFO] [ChCore] uart init finished
-[TEST] Jump to kernel high memory: OK
 [INFO] physmem_map: [0x1d0000, 0x3d000000)
-[TEST] Init buddy: OK
-[TEST] Check invalid order: OK
-[TEST] Allocate & free order 0: OK
-[TEST] Allocate & free each order: OK
-[TEST] Allocate & free all orders: OK
-[TEST] Allocate & free all memory: OK
-[TEST] Buddy tests finished
 [INFO] [ChCore] mm init finished
-[TEST] kmalloc: OK
-[TEST] Map & unmap one page: OK
-[TEST] Map & unmap multiple pages: OK
-[TEST] Map & unmap huge range: OK
-[TEST] Map & unmap with huge page support: OK
-[TEST] Page table tests finished
 [INFO] [ChCore] interrupt init finished
 [INFO] [ChCore] pmu init finished
 [INFO] [ChCore] sched init finished
@@ -29,11 +15,6 @@ boot: init_c
 [INFO] CPU 3 is active
 [INFO] All 4 CPUs are active
 [INFO] [ChCore] boot multicore finished
-[INFO] Pass tst_mutex!
-[INFO] Pass tst_sched_cooperative!
-[INFO] Pass tst_sched_preemptive!
-[INFO] Pass tst_sched_affinity!
-[INFO] Pass tst_sched!
 [INFO] Cap_create Pretest Ok!
 [INFO] [ChCore] create initial thread done on 0
 Hello from ChCore Process Manager!
@@ -42,14 +23,30 @@ Testdir-test_dir2 Testdir-test_dir3 test_mkdir pass!
 test_create err is 0
 test_create pass!
 test_read_write pass!
-test_unlink pass!
-Run shell server !
+test_Run shell server !
+unlink pass!
 lab5_stdio_file_read_write pass!
 lab5_stdio_file_printf_scanf pass!
 abc123XYZ
 SHELL lab5.bin helloworld.bin waitpid.bin waitpid_child.bin test.txt myfile.txt myfile2.txt 
-
 SHELL 1234567890
-Q
-1>QEMU: Terminated
+
+1>Enter simpleline
+2>lab5.binmpleline
+helloworld.binne
+waitpid.binbinne
+waitpid_child.bin
+test.txtchild.bin
+myfile.txtild.bin
+myfile2.txtld.bin
+Hello World!
+
+FSM lab5.bin helloworld.bin waitpid.bin waitpid_child.bin test.txt myfile.txt myfile2.txt fakefs 
+FSM test.txt hello.txt world.txt testdir testdir2 
+FSM test file!
+FSM 1234567890
+
+The shell_test finish!
+
+$ QEMU: Terminated
 

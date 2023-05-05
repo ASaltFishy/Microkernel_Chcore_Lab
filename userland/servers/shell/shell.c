@@ -141,6 +141,7 @@ int do_complement(char *buf, char *complement, int complement_time) {
 		}
 		j++;
 	}
+    // fclose(parent);
     /* LAB 5 TODO END */
 
     return r;
@@ -199,6 +200,7 @@ void print_file_content(char *path) {
 	char rbuf[512];
 	// read buf 不能过大 不超过512
 	fread(rbuf,sizeof(char),sizeof(rbuf),f);
+    // fclose(f);
 
 	chcore_console_printf("%s", rbuf);
     /* LAB 5 TODO END */
@@ -223,7 +225,7 @@ void fs_scan(char *path) {
 		if(name[0]=='.') continue;
 		chcore_console_printf("%s ", name);
     }
-	printf("\n");
+	// printf("\n");
     /* LAB 5 TODO END */
 }
 

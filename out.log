@@ -1,0 +1,108 @@
+boot: init_c
+[BOOT] Install boot page table
+[BOOT] Enable el1 MMU
+[BOOT] Jump to kernel main
+[INFO] [ChCore] lock init finished
+[2J[INFO] [ChCore] uart init finished
+[INFO] physmem_map: [0x1d0000, 0x3d000000)
+[INFO] [ChCore] mm init finished
+[INFO] [ChCore] interrupt init finished
+[INFO] [ChCore] pmu init finished
+[INFO] [ChCore] sched init finished
+[INFO] CPU 0 is active
+[INFO] CPU 1 is active
+[INFO] CPU 2 is active
+[INFO] CPU 3 is active
+[INFO] All 4 CPUs are active
+[INFO] [ChCore] boot multicore finished
+[INFO] Cap_create Pretest Ok!
+[INFO] [ChCore] create initial thread done on 0
+Hello from ChCore Process Manager!
+[file_write] page begin 0 end 16, size 67832, old_end 0
+[file_write] write ELF
+Run shell server !
+[file_write] page begin 0 end 16, size 66832, old_end 0
+[file_write] write ELF
+[file_write] page begin 0 end 17, size 72640, old_end 0
+[file_write] write ELF
+[file_write] page begin 0 end 0, size 11, old_end 0
+[file_write] write 1234567890
+
+[file_write] page begin 0 end 16, size 68376, old_end 0
+[file_write] write ELF
+[fopen] open file /myfile.txt mode w
+[fopen] open unexisted file /myfile.txt at mode write, create now
+[fopen] open file /myfile.txt mode w
+[fopen] open file /myfile.txt successfully 
+[fwrite] write fd2 size 1 nmemb 256
+[fwrite] write content 
+[file_write] page begin 0 end 0, size 256, old_end 0
+[file_write] write 
+[fwrite] ipc call write fd2 ret 256
+[fclose] close fd2
+[fopen] open fd2 return 0
+[fopen] open file /myfile.txt mode r
+[fopen] open file /myfile.txt successfully 
+[fread] read fd3 size 1 nmemb 32
+[file_read] page begin 0 end 0, new_size 32
+[fread] read fd3 size 32 into dest
+[fread] read fd3 size 1 nmemb 32
+[file_read] page begin 0 end 0, new_size 32
+[fread] read fd3 size 32 into dest
+[fread] read fd3 size 1 nmemb 32
+[file_read] page begin 0 end 0, new_size 32
+[fread] read fd3 size 32 into dest
+[fread] read fd3 size 1 nmemb 32
+[file_read] page begin 0 end 0, new_size 32
+[fread] read fd3 size 32 into dest
+[fread] read fd3 size 1 nmemb 32
+[file_read] page begin 0 end 0, new_size 32
+[fread] read fd3 size 32 into dest
+[fread] read fd3 size 1 nmemb 32
+[file_read] page begin 0 end 0, new_size 32
+[fread] read fd3 size 32 into dest
+[fread] read fd3 size 1 nmemb 32
+[file_read] page begin 0 end 0, new_size 32
+[fread] read fd3 size 32 into dest
+[fread] read fd3 size 1 nmemb 32
+[file_read] page begin 0 end 0, new_size 32
+[fread] read fd3 size 32 into dest
+[fread] read fd3 size 1 nmemb 32
+[fclose] close fd3
+[fopen] open fd3 return 0
+lab5_stdio_file_read_write pass!
+[fopen] open file /myfile2.txt mode w
+[fopen] open unexisted file /myfile2.txt at mode write, create now
+[fopen] open file /myfile2.txt mode w
+[fopen] open file /myfile2.txt successfully 
+[shell_test] fprintf lab5_stdio_file_printf_scanf 16777272
+fprintf %s %d
+
+src int: 0, dst char: 16777272
+wbuf is fprintf lab5_stdio_file_printf_scanf 16777272
+
+[fwrite] write fd5 size 1 nmemb 46
+[fwrite] write content fprintf lab5_stdio_file_printf_scanf 16777272
+
+[file_write] page begin 0 end 0, size 46, old_end 0
+[file_write] write fprintf lab5_stdio_file_printf_scanf 16777272
+
+[fwrite] ipc call write fd5 ret 46
+[fclose] close fd5
+[fopen] open fd5 return 0
+[fopen] open file /myfile2.txt mode r
+[fopen] open file /myfile2.txt successfully 
+[fread] read fd6 size 1 nmemb 1024
+[file_read] page begin 0 end 0, new_size 46
+[fread] read fd6 size 46 into dest
+[fscanf]rbuf: fprintf lab5_stdio_file_printf_scanf 16777272
+, len 46
+%s %s %d
+[fclose] close fd6
+[fopen] open fd6 return 0
+lab5_stdio_file_printf_scanf pass!
+
+SHELL 
+SHELL 
+1>QEMU: Terminated
+

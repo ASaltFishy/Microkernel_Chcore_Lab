@@ -343,6 +343,7 @@ ssize_t tfs_file_write(struct inode *inode, off_t offset, const char *data,
     u64 total_size = 0;
     if (offset + size > inode->size) inode->size = offset + size;
     // printf("[file_write] page begin %d end %d, size %d, old_end %d\n", page_begin, page_end, size, page_old_end);
+    // printf("[file_write] write %s\n", data);
     for (page_no = page_begin; page_no <= page_end; page_no++) {
         page = radix_get(&inode->data, page_no);
         if (page == NULL) {
@@ -351,7 +352,7 @@ ssize_t tfs_file_write(struct inode *inode, off_t offset, const char *data,
             radix_add(&inode->data, page_no, page);
         }
         page_off = cur_off % PAGE_SIZE;
-        to_write = page_no == page_end ? size - cur_off : PAGE_SIZE;
+        to_write = page_no == page_end ? size - total_size : PAGE_SIZE;
         // printf("[file_write] write page%d, page_offset %d write_size %d\n", page_no, page_off, to_write);
         memcpy(page + page_off, data + total_size, to_write);
         radix_add(&inode->data, page_no, page);
@@ -393,11 +394,12 @@ ssize_t tfs_file_read(struct inode *inode, off_t offset, char *buff,
     for (int page_no = page_begin; page_no <= page_end; page_no++) {
         page = radix_get(&inode->data, page_no);
         page_off = cur_off % PAGE_SIZE;
-        to_read = page_no == page_end ? size - cur_off : PAGE_SIZE;
+        to_read = page_no == page_end ? size - total_size : PAGE_SIZE;
         memcpy(buff + total_size, page + page_off, to_read);
         total_size += to_read;
         cur_off += to_read;
     }
+    // printf("[file_read] at offset %d read %s\n", offset, buff);
     /* LAB 5 TODO END */
 
     return cur_off - offset;

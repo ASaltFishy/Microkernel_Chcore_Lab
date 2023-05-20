@@ -4,10 +4,31 @@ boot: init_c
 [BOOT] Jump to kernel main
 [INFO] [ChCore] lock init finished
 [2J[INFO] [ChCore] uart init finished
-[INFO] physmem_map: [0x1d0000, 0x3d000000)
+[TEST] Jump to kernel high memory: OK
+[INFO] physmem_map: [0x230000, 0x3d000000)
+[DEBUG] [CHCORE] mm: free_mem_start is 0xffffff0000230000, free_mem_end is 0xffffff003d000000
+[DEBUG] page_meta_start: 0xffffff0000230000, real_start_vaddr: 0xffffff0000b9b000
+npages: 0x3c465, page_meta_size: 0x28
+[TEST] Init buddy: OK
+[TEST] Check invalid order: OK
+[TEST] Allocate & free order 0: OK
+[TEST] Allocate & free each order: OK
+[TEST] Allocate & free all orders: OK
+[TEST] Allocate & free all memory: OK
+[TEST] Buddy tests finished
+[DEBUG] mm: finish initing slab allocators
 [INFO] [ChCore] mm init finished
+[TEST] kmalloc: OK
+[TEST] Map & unmap one page: OK
+[TEST] Map & unmap multiple pages: OK
+[TEST] Map & unmap huge range: OK
+[TEST] Map & unmap with huge page support: OK
+[TEST] Page table tests finished
+[DEBUG] timer init cntp_tval_el0 = 187499407
+[DEBUG] timer init cntp_ctl_el0 = 1
 [INFO] [ChCore] interrupt init finished
 [INFO] [ChCore] pmu init finished
+[DEBUG] Scheduler initialized. Create 4 idle threads.
 [INFO] [ChCore] sched init finished
 [INFO] CPU 0 is active
 [INFO] CPU 1 is active
@@ -15,38 +36,575 @@ boot: init_c
 [INFO] CPU 3 is active
 [INFO] All 4 CPUs are active
 [INFO] [ChCore] boot multicore finished
-[INFO] Cap_create Pretest Ok!
-[INFO] [ChCore] create initial thread done on 0
+[INFO] Pass tst_mutex!
+[INFO] Pass tst_sched_cooperative!
+[INFO] Pass tst_sched_preemptive!
+[INFO] Pass tst_sched_affinity!
+[INFO] Pass tst_sched!
+[[DEBUG] timer init cntp_tval_el0 = 187499612
+[DEBUG] timer init cntp_ctl_el0 = 1
+INFO] Cap_create Pretest Ok!
+[[DEBUG] timer init cntp_tval_el0 = 187499519
+[DEBUG] timer init cntp_ctl_el0 = 1
+[DEBUG] timer init cntp_tval_el0 = 187499587
+[DEBUG] timer init cntp_ctl_el0 = 1
+INFO] [ChCore] create initial thread done on 0
+[DEBUG] Exception type: 8, ESR: 0x92000004, Fault address: 0x403428, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x4023c4, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000046, Fault address: 0x4043ac, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000046, Fault address: 0x404298, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
 Hello from ChCore Process Manager!
-test_tfs_load_image pass!
-Testdir-test_dir2 Testdir-test_dir3 test_mkdir pass!
-test_create err is 0
-test_create pass!
-test_read_write pass!
-test_Run shell server !
-unlink pass!
-lab5_stdio_file_read_write pass!
-lab5_stdio_file_printf_scanf pass!
-abc123XYZ
-SHELL lab5.bin helloworld.bin waitpid.bin waitpid_child.bin test.txt myfile.txt myfile2.txt 
-SHELL 1234567890
-
-1>Enter simpleline
-2>lab5.binmpleline
-helloworld.binne
-waitpid.binbinne
-waitpid_child.bin
-test.txtchild.bin
-myfile.txtild.bin
-myfile2.txtld.bin
-Hello World!
-
-FSM lab5.bin helloworld.bin waitpid.bin waitpid_child.bin test.txt myfile.txt myfile2.txt fakefs 
-FSM test.txt hello.txt world.txt testdir testdir2 
-FSM test file!
-FSM 1234567890
-
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d7c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d7c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x400f54, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000004, Fault address: 0x404188, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x40314c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000046, Fault address: 0x4009fc, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x4008ac, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x4008ac, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404740, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x404760, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000004, Fault address: 0x401e50, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x400e14, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000046, Fault address: 0x402c10, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000004, Fault address: 0x4020c4, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x400ff8, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+Run shell server !
+[DEBUG] Exception type: 8, ESR: 0x92000046, Fault address: 0x402330, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
 The shell_test finish!
 
-$ QEMU: Terminated
-
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x40066c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+$ /sd_driver_test.bin
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x4027c0, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000004, Fault address: 0x401350, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x400314, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000046, Fault address: 0x4018d0, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x403d9c, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000004, Fault address: 0x403a40, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level
+[DEBUG] Exception type: 8, ESR: 0x92000047, Fault address: 0x402a04, EC 0b100100
+[DEBUG] Data Abort from a lower Exception level

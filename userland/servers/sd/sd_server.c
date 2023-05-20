@@ -24,11 +24,15 @@ int map_mmio(unsigned long long pa_base, unsigned long long size){
 	return 0;
 }
 
+// lba 从0开始（相当于sd卡内部的index？）
 static int sdcard_readblock(int lba, char *buffer)
 {
 	/* LAB 6 TODO BEGIN */
 	/* BLANK BEGIN */
-
+	// printf("[sdcard_read] begin to read index %d\n",lba);
+	Seek(lba*BLOCK_SIZE);
+	int ret =  sd_Read(buffer,BLOCK_SIZE);
+	if(ret== BLOCK_SIZE)return 0;
 	/* BLANK END */
 	/* LAB 6 TODO END */
 	return -1;
@@ -38,7 +42,10 @@ static int sdcard_writeblock(int lba, const char *buffer)
 {
 	/* LAB 6 TODO BEGIN */
 	/* BLANK BEGIN */
-
+	// printf("[sdcard_write] begin to write index %d\n",lba);
+	Seek(lba*BLOCK_SIZE);
+	int ret = sd_Write(buffer,BLOCK_SIZE);
+	if(ret== BLOCK_SIZE)return 0;
 	/* BLANK END */
 	/* LAB 6 TODO END */
 	return -1;
@@ -73,7 +80,7 @@ int main(void)
 
 	ret = ipc_register_server(sd_dispatch);
 	printf("[SD Driver] register server value = %d\n", ret);
-
+	
 	while(1) {
 		__chcore_sys_yield();
 	}

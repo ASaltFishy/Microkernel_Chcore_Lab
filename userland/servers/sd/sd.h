@@ -65,6 +65,7 @@ extern "C" {
 
 //
 // Barriers
+// 数据屏障指令，在多核情况下使用屏障指定某一些操作的顺序性
 //
 #define DataSyncBarrier()	asm volatile ("dsb sy" ::: "memory")
 #define DataMemBarrier() 	asm volatile ("dmb sy" ::: "memory")

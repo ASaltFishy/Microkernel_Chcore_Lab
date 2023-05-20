@@ -309,8 +309,9 @@ int run_cmd(char *cmdline) {
     int cap = 0;
     /* Hint: Function chcore_procm_spawn() could be used here. */
     /* LAB 5 TODO BEGIN */
-	// chcore_console_printf("%s\n",cmdline);
+	chcore_console_printf("%s",cmdline);
 	chcore_procm_spawn(cmdline, &cap);
+    while (true);
     /* LAB 5 TODO END */
     return 0;
 }
